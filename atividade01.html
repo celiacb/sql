@@ -7,16 +7,12 @@
   <!-- Incluindo Bootstrap para estilos -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-    #resposta-correta {
-      display: none;
-    }
-
     .resposta-correta {
       color: green;
     }
 
     .resposta-incorreta {
-      color: red;
+      color: red;		
     }
   </style>
 </head>
@@ -29,26 +25,139 @@
   <br>
   
   <div class="form-group">
-    <p>Crie um banco de dados chamado 'musicas'</p>
+    <p>1. Crie um banco de dados chamado 'musicas'</p>
   </div>
   <div class="form-group">
-    <textarea class="form-control" id="resposta" rows="1" cols="50"></textarea>
+    <textarea class="form-control" id="resposta1" rows="1" cols="50"></textarea>
   </div>
-  <button class="btn btn-primary" onclick="verResposta()">Ver Resposta</button>
-  <p id="resposta-correta"><strong class="resposta-correta">CREATE DATABASE musicas</strong></p>
-  <br>
+    <button class="btn btn-primary" onclick="verResposta('resposta-correta1', 'resposta1', 3000)">Ver Resposta</button>
+  <p id="resposta-correta1" style="display:none"><strong class="resposta-correta">CREATE DATABASE musicas</strong></p>
+  <br>  <br>
   
-  <!-- Incluindo Bootstrap e jQuery para funcionalidades -->
+  <div class="form-group">
+    <p>2. Crie uma tabela de 'Generos' com a seguinte estrutura:</p>
+	<p>id (chave primária, inteiro) </p>
+	<p>nome_genero (texto: 10 caracteres) </p>
+  </div>
+  <div class="form-group">
+    <textarea class="form-control" id="resposta2" rows="4" cols="50"></textarea>
+  </div>
+  <button class="btn btn-primary" onclick="verResposta('resposta-correta2', 'resposta2', 5000)">Ver Resposta</button>
+  <p id="resposta-correta2" style="display:none">
+  <strong class="resposta-correta">CREATE TABLE generos (
+    id INT NOT NULL AUTO_INCREMENT,
+    nome_genero VARCHAR(10),
+    PRIMARY KEY (id));
+   </strong></p>
+  <br>  <br>
+  
+  <div class="form-group">
+    <p>3. Crie a tabela de 'Artistas' com a seguinte estrutura:</p>
+	<p>id (chave primária, inteiro) </p>
+	<p>nome_artista (texto, 30 caracteres) </p>
+	<p>data_nascimento (data) </p>
+	<p>avaliacao (número decimal 6,2)</p>	
+  </div>
+  <div class="form-group">
+    <textarea class="form-control" id="resposta3" rows="5" cols="50"></textarea>
+  </div>
+  <button class="btn btn-primary" onclick="verResposta('resposta-correta3', 'resposta3', 5000)">Ver Resposta</button>
+  <p id="resposta-correta3" style="display:none">
+  <strong class="resposta-correta">CREATE TABLE artistas (
+    id INT NOT NULL AUTO_INCREMENT,
+    nome_artista VARCHAR(30),
+	data_nascimento DATE,
+	avaliacao DECIMAL(6,2),
+    PRIMARY KEY (id));
+   </strong></p>
+  <br>  <br>
+  
+
+  <div class="form-group">
+    <p>4. Altere a estrutura da tabela 'Artistas', adicionando o campo 'genero'​ (chave estrangeira).</p>
+  </div>
+  <div class="form-group">
+    <textarea class="form-control" id="resposta4" rows="1" cols="50"></textarea>
+  </div>
+  <button class="btn btn-primary" onclick="verResposta('resposta-correta4', 'resposta4', 4000)">Ver Resposta</button>
+  <p id="resposta-correta4" style="display:none">
+  <strong class="resposta-correta">ALTER TABLE artistas ADD genero INT;</strong></p>
+  <br>  <br>
+  
+  <div class="form-group">
+    <p>5. Altere a estrutura da tabela 'Artistas', adicionando o campo 'pais_origem'​ (texto 10 caracteres).</p>
+  </div>
+  <div class="form-group">
+    <textarea class="form-control" id="resposta5" rows="1" cols="50"></textarea>
+  </div>
+  <button class="btn btn-primary" onclick="verResposta('resposta-correta5', 'resposta5', 4000)">Ver Resposta</button>
+  <p id="resposta-correta5" style="display:none">
+  <strong class="resposta-correta">ALTER TABLE artistas ADD pais_origem VARCHAR(10);</strong></p>
+  <br>  <br>
+
+
+  <div class="form-group">
+    <p>6. Altere a estrutura da tabela 'Artistas', modificando o campo '​pais_origem (texto com 20 caracteres).</p>
+  </div>
+  <div class="form-group">
+    <textarea class="form-control" id="resposta6" rows="1" cols="50"></textarea>
+  </div>
+  <button class="btn btn-primary" onclick="verResposta('resposta-correta6', 'resposta6', 4000)">Ver Resposta</button>
+  <p id="resposta-correta6" style="display:none">
+  <strong class="resposta-correta">ALTER TABLE artistas MODIFY pais_origem VARCHAR(20);</strong></p>
+  <br>  <br>
+
+
+  <div class="form-group">
+    <p>7. Altere a estrutura da tabela 'Artistas', excluindo o campo​ 'data_nascimento'</p>
+  </div>
+  <div class="form-group">
+    <textarea class="form-control" id="resposta7" rows="1" cols="50"></textarea>
+  </div>
+  <button class="btn btn-primary" onclick="verResposta('resposta-correta7', 'resposta7', 4000)">Ver Resposta</button>
+  <p id="resposta-correta7" style="display:none">
+  <strong class="resposta-correta">ALTER TABLE artistas DROP data_nascimento;</strong></p>
+  <br>  <br>
+
+
+  <div class="form-group">
+    <p>8. Mostre todas as tabelas da base de dados 'musicas'.</p>
+  </div>
+  <div class="form-group">
+    <textarea class="form-control" id="resposta8" rows="1" cols="50"></textarea>
+  </div>
+  <button class="btn btn-primary" onclick="verResposta('resposta-correta8', 'resposta8', 4000)">Ver Resposta</button>
+  <p id="resposta-correta8" style="display:none">
+  <strong class="resposta-correta">SHOW tables;</strong></p>
+  <br>  <br>
+   
+   
+  <div class="form-group">
+    <p>9. Exclua a base de dados 'musicas'.</p>
+  </div>
+  <div class="form-group">
+    <textarea class="form-control" id="resposta9" rows="1" cols="50"></textarea>
+  </div>
+  <button class="btn btn-primary" onclick="verResposta('resposta-correta9', 'resposta9', 4000)">Ver Resposta</button>
+  <p id="resposta-correta9" style="display:none">
+  <strong class="resposta-correta">DROP DATABASE musicas;</strong></p>
+  <br>  <br>
+   
+   
+   
+   <!-- Incluindo Bootstrap e jQuery para funcionalidades -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  <script>
-    function verResposta() {
-      var respostaCorreta = document.getElementById("resposta-correta");
-      var respostaTexto = document.getElementById("resposta");
+
+ <script>
+    function verResposta(respostaCorretaId, respostaTextoId, timeout) {
+      var respostaCorreta = document.getElementById(respostaCorretaId);
+      var respostaTexto = document.getElementById(respostaTextoId);
 
       respostaCorreta.style.display = "block";
+	  
 
       if (respostaTexto.value.trim().toLowerCase() === respostaCorreta.textContent.trim().toLowerCase()) {
         respostaTexto.classList.remove("resposta-incorreta");
@@ -61,9 +170,8 @@
       setTimeout(function () {
         respostaCorreta.style.display = "none";
         respostaTexto.classList.remove("resposta-incorreta", "resposta-correta");
-      }, 3000);
+      }, timeout);
     }
   </script>
-
 </body>
 </html>
